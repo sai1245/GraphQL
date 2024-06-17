@@ -1,0 +1,44 @@
+type AccountInformation {
+    accountId: ID!
+    loanVersion: String
+    holderName: String!
+    holderAddress: String!
+    SSN_NUMBER:String!
+    finalAmount:Float
+}
+
+
+input CreateAccount {
+    loanVersion: String
+    holderName: String!
+    holderAddress: String!
+    SSN_NUMBER:String!
+    startingBalance:Float!
+}
+
+input AccountTransaction {
+    accountId: Int!
+    amount:Float!
+    operation:OPERATIONS!
+}
+
+enum OPERATIONS {
+    DEBIT
+    CREDIT
+}
+
+type Mutation{
+    createAccount(account:CreateAccount):AccountInformation
+    updateTransactionInAccount(account: AccountTransaction!): AccountInformation
+}
+
+
+type Query {
+    getAllAccountInformation : [ AccountInformation ]
+    getAccountInformation(accountId: Int):  AccountInformation
+    getAccountsInformation(accountIds: [Int], loanVersion: String):[AccountInformation]
+}
+
+
+
+
