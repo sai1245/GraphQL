@@ -1,4 +1,4 @@
-package com.prathyusha.demo.pgraphql;
+package com.saikrishna.demo.pgraphql;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

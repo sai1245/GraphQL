@@ -32,11 +32,18 @@ type Mutation{
     updateTransactionInAccount(account: AccountTransaction!): AccountInformation
 }
 
+input AccountFilter{
+    accountId:Int
+    loanVersion: String
+}
+
 
 type Query {
     getAllAccountInformation : [ AccountInformation ]
     getAccountInformation(accountId: Int):  AccountInformation
     getAccountsInformation(accountIds: [Int], loanVersion: String):[AccountInformation]
+
+    getAccountsInfo(filter : [AccountFilter]): [AccountInformation]
 }
 
 
